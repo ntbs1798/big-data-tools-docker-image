@@ -55,5 +55,25 @@ RUN echo "export HIVE_HOME=./hive/apache-hive-3.1.3-bin" >>~/.bashrc
 RUN echo "export PATH=$PATH:$HIVE_HOME/bin" >>~/.bashrc
 RUN /bin/bash -c "source ~/.bashrc"
 
+#-----Installing Spark-------------------------------------
+RUN mkdir spark
+RUN wget https://downloads.lightbend.com/scala/2.12.17/scala-2.12.17.tgz
+RUN tar -xzvf scala-2.12.17.tgz
+RUN echo "export SCALA_HOME=./scala-2.12.17" >>~/.bashrc
+RUN echo "export PATH=$PATH:$SCALA_HOME/bin" >>~/.bashrc
+RUN /bin/bash -c "source ~/.bashrc"
+RUN wget https://github.com/sbt/sbt/releases/download/v1.7.1/sbt-1.7.1.tgz
+RUN tar -xzvf sbt-1.7.1.tgz
+RUN echo "export SBT_HOME=./sbt" >>~/.bashrc
+RUN echo "export PATH=$PATH:$SBT_HOME/bin" >>~/.bashrc
+RUN /bin/bash -c "source ~/.bashrc"
+RUN wget https://dlcdn.apache.org/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz
+RUN tar -xzvf spark-3.3.2-bin-hadoop3.tgz -C ./spark
+RUN echo "export SPARK_HOME=./spark/spark-3.3.2-bin-hadoop3" >>~/.bashrc
+RUN echo "export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin" >>~/.bashrc
+RUN /bin/bash -c "source ~/.bashrc"
+
+
+
 LABEL maintainer="Tien Sang Nguyen - ntbs1798@gmail.com"
 
