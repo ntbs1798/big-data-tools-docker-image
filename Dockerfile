@@ -43,8 +43,17 @@ RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 RUN $HADOOP_HOME/bin/hdfs namenode -format
 EXPOSE 22
 
-#Installing Hive
-
+#----Installing Hive----------------------------------------
+RUN mkdir hive
+RUN wget https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz
+RUN tar -xzvf apache-hive-3.1.3-bin.tar.gz -C ./hive
+RUN rm -rf ./hive/apache-hive-3.1.3-bin/lib/guava-19.0.jar
+ADD ./hive_config/guava-27.0-jre.jar ./hive/apache-hive-3.1.3-bin/lib/
+ADD ./hive_config/hive-env.sh ./hive/apache-hive-3.1.3-bin/conf/
+ADD ./hive_config/hive-site.xml ./hive/apache-hive-3.1.3-bin/conf/
+RUN echo "export HIVE_HOME=./hive/apache-hive-3.1.3-bin" >>~/.bashrc
+RUN echo "export PATH=$PATH:$HIVE_HOME/bin" >>~/.bashrc
+RUN /bin/bash -c "source ~/.bashrc"
 
 LABEL maintainer="Tien Sang Nguyen - ntbs1798@gmail.com"
 
