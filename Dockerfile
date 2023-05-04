@@ -73,7 +73,9 @@ RUN echo "export SPARK_HOME=./spark/spark-3.3.2-bin-hadoop3" >>~/.bashrc
 RUN echo "export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin" >>~/.bashrc
 RUN /bin/bash -c "source ~/.bashrc"
 
-
+#-----Installing Kafka---------------------------------
+RUN wget https://dlcdn.apache.org/kafka/3.3.2/kafka_2.12-3.3.2.tgz
+RUN tar -xzvf kafka_2.12-3.3.2.tgz
 
 LABEL maintainer="Tien Sang Nguyen - ntbs1798@gmail.com"
 
