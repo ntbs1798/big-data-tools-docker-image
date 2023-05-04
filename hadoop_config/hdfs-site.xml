@@ -19,11 +19,11 @@
 <configuration>
 	<property>
         <name>dfs.namenode.name.dir</name>
-	<value>/home/sangsan/hadoop_data/namenode</value>
+	<value>/hadoop_data/namenode</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-	<value>/home/sangsan/hadoop_data/datanode</value>
+	<value>/hadoop_data/datanode</value>
     </property>
 <property>
         <name>dfs.replication</name>

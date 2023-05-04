@@ -22,7 +22,7 @@ ADD ./hadoop_config/mapred-site.xml ./hadoop/hadoop-3.2.4/etc/hadoop
 ADD ./hadoop_config/yarn-site.xml ./hadoop/hadoop-3.2.4/etc/hadoop
 ENV HADOOP_HOME /hadoop/hadoop-3.2.4
 ENV PATH $PATH:$HADOOP_HOME/bin
-RUN echo "export HADOOP_HOME=/hadoop/hadoop-3.2.4" >>~/.bashrc
+RUN echo "export HADOOP_HOME=./hadoop/hadoop-3.2.4" >>~/.bashrc
 RUN echo "export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop" >>~/.bashrc
 RUN echo "export HADOOP_HDFS_HOME=$HADOOP_HOME" >>~/.bashrc
 RUN echo "export HADOOP_INSTALL=$HADOOP_HOME" >>~/.bashrc
@@ -34,10 +34,16 @@ RUN echo "export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native" >>~/.bash
 RUN echo "export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin" >>~/.bashrc
 RUN echo "export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"" >>~/.bashrc
 RUN /bin/bash -c "source ~/.bashrc"
+RUN mkdir -P hadoop_data/tmp
+RUN mkdir -P hadoop_data/namenode
+RUN mkdir -P hadoop_data/datanode 
 RUN apt install openssh-server openssh-client -y 
 RUN ssh-keygen -t rsa
 RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+RUN $HADOOP_HOME/bin/hdfs namenode -format
 EXPOSE 22
+
+#Installing Hive
 
 
 LABEL maintainer="Tien Sang Nguyen - ntbs1798@gmail.com"

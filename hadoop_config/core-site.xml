@@ -19,7 +19,7 @@
 <configuration>
   <property>
         <name>hadoop.tmp.dir</name>
-	<value>/home/sangsan/hadoop_data/tmp</value>
+	<value>/hadoop_data/tmp</value>
 	<description>parent dir for other temp directories</description>
 </property>
   <property>
