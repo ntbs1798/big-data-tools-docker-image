@@ -26,4 +26,4 @@
 ```
 * * the option [-t big-data-tools] is optional, which stand for the tag of image 
 ### NOTE:
-Since this project is used for personal data handling scope, which is not as big as enteprise scope, then softwares that I setted up are single cluster.
+Since this project is used for personal data handling scope, which is not as big as enteprise scope, then softwares that I setted up are single clusters.
