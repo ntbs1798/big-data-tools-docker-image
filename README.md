@@ -6,7 +6,7 @@
 
 ---
 ## INCEPTION:
-* The reason why I built this project is to deploy my own big-data-tools for personal data handling, and I will be no longer need to use the Cloudera or Hortonworks Sandbox for these tools.
+* The reason why I built this project is to deploy my own big-data-tools for personal data handling, and I will be no longer need to use the Cloudera or Hortonworks Sandbox for these tools. Also, I can myself update and config the newest version of hadoop, spark, kafka, hive, etc
 
 ---
 ## STEP TO BUILD:
@@ -19,8 +19,11 @@
 ```bash
 ~$ docker --version
 ```
-* By seeing the version of docker on cmd-command line, we know that docker is working properly (mine response is: Docker version 20.10.24, build 297e128). 
-* Make sure your cmd path is in this project(which contain Dockerfile), then build your docker image by command:
+* By seeing the version of docker on cmd-command line, we know that docker is working properly (my response is: Docker version 20.10.24, build 297e128). 
+* Make sure your cmd path is in this project(which contain Dockerfile), then build your docker image by simple command:
 ```bash
-~$ docker build .
+~$ docker -t big-data-tools build .
 ```
+* * the option [-t big-data-tools] is optional, which stand for the tag of image 
+### NOTE:
+Since this project is used for personal data handling scope, which is not as big as enteprise scope, then softwares that I setted up are single cluster.
