@@ -3,7 +3,12 @@
 ## BUILDING DOCKER IMAGE FOR BIG DATA TOOLS FROM SCRATCH
 * This project is mainly created for building docker image of big-data-tools(hadoop, hive, spark, kafka), which ran on ubuntu server. 
 * The repository contains Dockerfile as well as 2 folders(hadoop_config-configs for hadoop software, hive_config-configs for hive software). 
-
+---
+## TECH STACK
+* Hadoop version: 3.2.4
+* Hive version: 3.1.3
+* Spark version: 3.3.2
+* Kafka version: 3.3.2
 ---
 ## INCEPTION:
 * The reason why I built this project is to deploy my own big-data-tools for personal data handling, and I will be no longer need to use the Cloudera or Hortonworks Sandbox for these tools. Also, I can myself update and config the newest version of hadoop, spark, kafka, hive, etc
